@@ -181,6 +181,9 @@ namespace MonitoredUndo
 
             if (_IsInBatchCounter == 0)
             {
+                if (_CurrentBatchChangeSet.Changes.Count()==0)
+                    UndoStack.Pop();
+
                 _ConsolidateChangesForSameInstance = false;
                 _CurrentBatchChangeSet = null;
             }
